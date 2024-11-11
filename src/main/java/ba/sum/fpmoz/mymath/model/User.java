@@ -5,23 +5,26 @@ import jakarta.persistence.*;
 @Entity
 public class User {
 
-
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     private String firstname;
 
     private String lastname;
 
-    public User() {}
+    private String email;
 
-    public User (int id, String firstname, String lastname) {
+    private String password;
+
+    public User() {
+    }
+
+    public User(int id, String firstname, String lastname) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
     }
-
 
 
     public void setId(int id) {
@@ -46,5 +49,21 @@ public class User {
 
     public String getLastname() {
         return lastname;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

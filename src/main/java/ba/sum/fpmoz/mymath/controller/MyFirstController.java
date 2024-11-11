@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -25,5 +26,16 @@ public class MyFirstController {
         List<User> users = this.usersRepository.findAll();
         model.addAttribute("users", users);
         return "users";
+    }
+
+    @GetMapping("/register")
+    public String register () {
+        return "register";
+    }
+
+    @PostMapping("/register")
+    public String registerNewUser(User user) {
+        this.usersRepository.save(user);
+        return "redirect:/users";
     }
 }
