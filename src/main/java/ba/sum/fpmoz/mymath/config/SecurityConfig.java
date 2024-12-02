@@ -21,13 +21,16 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
-        security.authorizeRequests()
+        security.csrf().disable()
+                .authorizeRequests()
                     .requestMatchers("/login", "/register")
                     .permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()
                     .loginPage("/login")
+                    .usernameParameter("email")
+                    .passwordParameter("password")
                     .defaultSuccessUrl("/users")
                     .permitAll()
                 .and()
