@@ -17,10 +17,6 @@
     <div class="col">
       <form th:action="@{/login}" method="post">
 
-        <input type="hidden"
-               name="${_csrf.parameterName}"
-               value="${_csrf.token}"/>
-
         <div class="mb-3">
           <label for="email" class="form-label">Email:</label>
           <input type="text" class="form-control" id="email" name="email" placeholder="Unesite Vaš email">
