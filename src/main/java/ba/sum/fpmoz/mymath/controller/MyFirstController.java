@@ -38,4 +38,11 @@ public class MyFirstController {
         this.usersRepository.save(user);
         return "redirect:/users";
     }
+
+    @GetMapping("/login")
+    public String login () {
+        return "login";
+    }
+
+
 }
